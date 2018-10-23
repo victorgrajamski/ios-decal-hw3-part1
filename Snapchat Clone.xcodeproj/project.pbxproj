@@ -17,6 +17,11 @@
 		4196F2DD1E650ECA009916E4 /* ImageFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196F2DC1E650ECA009916E4 /* ImageFeed.swift */; };
 		4196F2E31E6514EE009916E4 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196F2E21E6514EE009916E4 /* ImagePickerController.swift */; };
 		4196F2ED1E6609B0009916E4 /* PostNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196F2EC1E6609B0009916E4 /* PostNavigationController.swift */; };
+		B256070A217712680081658E /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2560709217712680081658E /* ImageViewController.swift */; };
+		B256070C21781DAA0081658E /* SendItTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B256070B21781DAA0081658E /* SendItTableViewController.swift */; };
+		B2DE2B8A217ECFAF00903E80 /* ImageFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DE2B89217ECFAF00903E80 /* ImageFeedTableViewController.swift */; };
+		B2DE2B8C217ED17F00903E80 /* ImageFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DE2B8B217ED17F00903E80 /* ImageFeedTableViewCell.swift */; };
+		B2DE2B90217ED69100903E80 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DE2B8F217ED69100903E80 /* Snap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		4196F2DC1E650ECA009916E4 /* ImageFeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeed.swift; sourceTree = "<group>"; };
 		4196F2E21E6514EE009916E4 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		4196F2EC1E6609B0009916E4 /* PostNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNavigationController.swift; sourceTree = "<group>"; };
+		B2560709217712680081658E /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		B256070B21781DAA0081658E /* SendItTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendItTableViewController.swift; sourceTree = "<group>"; };
+		B2DE2B89217ECFAF00903E80 /* ImageFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedTableViewController.swift; sourceTree = "<group>"; };
+		B2DE2B8B217ED17F00903E80 /* ImageFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedTableViewCell.swift; sourceTree = "<group>"; };
+		B2DE2B8F217ED69100903E80 /* Snap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				4196F2DC1E650ECA009916E4 /* ImageFeed.swift */,
+				B2DE2B8F217ED69100903E80 /* Snap.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -66,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				417986C81E664AE40050E1DF /* ImageCollectionViewCell.swift */,
+				B2DE2B8B217ED17F00903E80 /* ImageFeedTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -77,6 +89,9 @@
 				4196F2EC1E6609B0009916E4 /* PostNavigationController.swift */,
 				417986CE1E6657650050E1DF /* Cells */,
 				4196F2E21E6514EE009916E4 /* ImagePickerController.swift */,
+				B2560709217712680081658E /* ImageViewController.swift */,
+				B256070B21781DAA0081658E /* SendItTableViewController.swift */,
+				B2DE2B89217ECFAF00903E80 /* ImageFeedTableViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -185,12 +200,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				417986CB1E664CB60050E1DF /* ImageFlowLayout.swift in Sources */,
+				B256070A217712680081658E /* ImageViewController.swift in Sources */,
 				4196F2E31E6514EE009916E4 /* ImagePickerController.swift in Sources */,
+				B2DE2B8A217ECFAF00903E80 /* ImageFeedTableViewController.swift in Sources */,
 				417986C51E6632C40050E1DF /* TabBarController.swift in Sources */,
 				417986C91E664AE40050E1DF /* ImageCollectionViewCell.swift in Sources */,
 				4196F2DD1E650ECA009916E4 /* ImageFeed.swift in Sources */,
+				B2DE2B8C217ED17F00903E80 /* ImageFeedTableViewCell.swift in Sources */,
 				4196F2CB1E6509E8009916E4 /* AppDelegate.swift in Sources */,
+				B256070C21781DAA0081658E /* SendItTableViewController.swift in Sources */,
 				4196F2ED1E6609B0009916E4 /* PostNavigationController.swift in Sources */,
+				B2DE2B90217ED69100903E80 /* Snap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

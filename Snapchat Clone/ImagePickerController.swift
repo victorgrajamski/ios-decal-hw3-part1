@@ -12,6 +12,8 @@ import UIKit
 class ImagePickerController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var imageCollectionView: UICollectionView!
+    
+    var imageToSend: UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
         imageCollectionView.collectionViewLayout = ImageFlowLayout()
@@ -24,6 +26,16 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
 
     func selectImage(_ image: UIImage) {
         //The image being selected is passed in as "image".
+        
+        // prepare for segue
+        imageToSend = image
+        performSegue(withIdentifier: "sendIt", sender: image)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationView = segue.destination as? SendItTableViewController {
+            destinationView.imageToSend = imageToSend
+        }
     }
     
     
