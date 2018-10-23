@@ -19,7 +19,7 @@ class SendItTableViewController: UITableViewController {
         let newSnap = Snap(name: "Victor Grajski", image: imageToSend!)
         threads[selectedThreadName.text!]!.append(newSnap)
         let alertController = UIAlertController(title: "Meep", message: "Snap posted to \(selectedThreadName.text!)!", preferredStyle: .alert)
-        let action3 = UIAlertAction(title: "Meep", style: .cancel) { (action:UIAlertAction) in}
+        let action3 = UIAlertAction(title: "Meep", style: .cancel) { (action:UIAlertAction) in self.navigationController?.popViewController(animated: true)}
         alertController.addAction(action3)
         self.present(alertController, animated: true, completion: nil)
     }
