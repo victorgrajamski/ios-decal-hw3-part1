@@ -10,6 +10,7 @@ import UIKit
 
 class ImageFeedTableViewController: UITableViewController {
     
+    
     var selectedIndexPath: IndexPath?
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
@@ -22,6 +23,12 @@ class ImageFeedTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -43,12 +50,21 @@ class ImageFeedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postReuseIdentifier", for: indexPath) as! ImageFeedTableViewCell
         
-        cell.isUserInteractionEnabled = threads[threadNames[indexPath.section]]![indexPath.item].interactionStatus
+        let snap = threads[threadNames[indexPath.section]]![indexPath.item]
         
-        cell.statusImage.image = threads[threadNames[indexPath.section]]![indexPath.item].statusImage
+        cell.isUserInteractionEnabled = snap.getInteractionStatus()
         
-        cell.nameLabel.text = threads[threadNames[indexPath.section]]![indexPath.item].name
-        cell.timeAgoLabel.text = threads[threadNames[indexPath.section]]![indexPath.item].timePosted
+        cell.statusImage.image = snap.getStatusImage()
+        
+        cell.nameLabel.text = snap.getName()
+        
+        if snap.getReadTime() != nil {
+            cell.timeAgoLabel.text = NSString(format: "%.0fs", snap.calculateReadTimeDiff()!) as String
+        }
+        else {
+            cell.timeAgoLabel.text = NSString(format: "%.0fs", snap.calculatePostTimeDiff()) as String
+        }
+        
         return cell
     }
     

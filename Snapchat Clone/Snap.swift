@@ -10,31 +10,27 @@ import Foundation
 import UIKit
 
 class Snap {
-    var readStatus: Bool
-    var name: String
-    var timePosted: String
-    var statusImage: UIImage
-    var image: UIImage
-    var interactionStatus: Bool
+    private var readStatus: Bool
+    private var name: String
+    private var timePosted: Date
+    private var statusImage: UIImage
+    private var image: UIImage
+    private var interactionStatus: Bool
+    private var readTime: Date?
+    private var timeDiff: TimeInterval?
+    private var postTimeDiff: TimeInterval
     
     init(name: String, image: UIImage) {
-        readStatus = false
+        self.readStatus = false
         self.name = name
         self.statusImage = UIImage(named: "unread")!
         self.image = image
         self.interactionStatus = true
-        
-        // https://stackoverflow.com/questions/42524651/convert-nsdate-to-string-in-ios-swift
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let myString = formatter.string(from: Date()) // string purpose I add here
-        // convert your string to date
-        let yourDate = formatter.date(from: myString)
-        //then again set the date format whhich type of output you need
-        formatter.dateFormat = "dd-MMM-yyyy"
-        // again convert your date to string
-        timePosted = formatter.string(from: yourDate!)
+        self.timePosted = Date()
+        self.readTime = nil
+        self.timeDiff = nil
+        self.postTimeDiff = 0.0
+        self.setPostTimeDiff()
     }
     
     func setReadStatus(status: Bool) {
@@ -55,5 +51,50 @@ class Snap {
         }
     }
     
+    func setReadTime(readTime: Date) {
+        self.readTime = readTime
+        self.setTimeDiff(readTime: (self.readTime?.timeIntervalSince(self.timePosted))!)
+    }
     
+    func setTimeDiff(readTime: TimeInterval) {
+        let currentTime = Date()
+        self.timeDiff = currentTime.timeIntervalSince(self.timePosted).rounded()
+    }
+    
+    func calculateReadTimeDiff() -> Double? {
+        let currentTime = Date()
+        self.timeDiff = currentTime.timeIntervalSince(self.readTime!).rounded()
+        return self.timeDiff
+    }
+    
+    func setPostTimeDiff() {
+        let currentTime = Date()
+        self.postTimeDiff = currentTime.timeIntervalSince(self.timePosted).rounded()
+    }
+    
+    func calculatePostTimeDiff() -> Double {
+        let currentTime = Date()
+        self.postTimeDiff = currentTime.timeIntervalSince(self.timePosted).rounded()
+        return self.postTimeDiff
+    }
+    
+    func getInteractionStatus() -> Bool {
+        return self.interactionStatus
+    }
+    
+    func getStatusImage() -> UIImage {
+        return self.statusImage
+    }
+    
+    func getName() -> String {
+        return self.name
+    }
+    
+    func getReadTime() -> Date? {
+        return self.readTime
+    }
+    
+    func getImage() -> UIImage {
+        return self.image
+    }
 }

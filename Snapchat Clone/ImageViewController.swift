@@ -21,7 +21,7 @@ class ImageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        imageToDisplay.image = snap?.image
+        imageToDisplay.image = snap?.getImage()
         snap?.setReadStatus(status: true)
         snap?.setInteractionStatus(status: false)
         imageToDisplay.isUserInteractionEnabled = true
@@ -30,6 +30,8 @@ class ImageViewController: UIViewController {
     }
     
     @objc func tapGesture() {
+        let currentTime = Date()
+        snap?.setReadTime(readTime: currentTime)
         goBackToOneButtonTapped(self)
     }
 
